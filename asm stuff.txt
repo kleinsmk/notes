@@ -1,0 +1,7 @@
+Create a policy for each Scenario as a template
+
+Compare each to determine if they are the same
+
+Import as new policy from xml data
+
+Profit!

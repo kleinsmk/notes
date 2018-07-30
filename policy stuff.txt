@@ -1,0 +1,50 @@
+Create New Policy 	
+Post
+	{
+"name": "ASM_Test_PolicySky7",
+"enforcementMode": "blocking",
+"allowedResponseCodes": [
+        400,
+        401,
+        403,
+        404,
+        407,
+        417,
+        500,
+        503
+    ],
+"learningMode":  "automatic"
+}
+
+
+Apply Policy }/mgmt/tm/asm/tasks/apply-policy
+Patch {
+  "policyReference":
+  {
+    "link": "https://localhost/mgmt/tm/asm/policies/qQvO8nFt4a5cB7ToSFVk6A"
+  }
+}
+	
+
+Activate Policy /mgmt/tm/asm/policies/{{F5_asm_policy_id}}/
+	Patch {
+"active": "true"
+}
+
+Under /mgmt/tm/ltm/virtual/~Common virutal name
+
+seccurityLogProfiles	
+"/Common/Log all requests"
+/Common/log_to_logiq_profile
+
+
+Under ~Common~esnews.bah.com_https/policies/  (mapping for policy)
+
+{
+  "kind": "tm:ltm:virtual:policies:policiesstate",
+  "name": "asm_auto_l7_policy__esnews.bah.com_https",
+  "partition": "Common",
+  "fullPath": "/Common/asm_auto_l7_policy__esnews.bah.com_https",
+  "generation": 14835583,
+  "selfLink": "https://localhost/mgmt/tm/ltm/virtual/~Common~esnews.bah.com_https/policies/~Common~asm_auto_l7_policy__esnews.bah.com_https?ver=12.1.1"
+}
